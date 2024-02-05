@@ -1,5 +1,6 @@
 package com.example.buttonrotation
 
+import android.graphics.Insets.add
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,11 +18,9 @@ class MainActivity : AppCompatActivity() {
         var result = 0
 
         addButton.setOnClickListener {
-
-            textView.text = result++.toString()
-
-
+            var res = result++
+            textView.text = res.toString()
         }
 
+        }
     }
-}
