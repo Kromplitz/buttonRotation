@@ -8,19 +8,27 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
+    var textView: TextView?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
         val addButton: Button = findViewById(R.id.addButton)
-        val textView: TextView = findViewById(R.id.textView)
-        var result = 0
-
+        textView= findViewById(R.id.textView)
         addButton.setOnClickListener {
-            var res = result++
-            textView.text = res.toString()
-        }
+        var result = 0
+        var res = result++
+           textView?.text = res.toString()
+        val savedData =  MyApplication.getApp().getSavedData()
+        textView?.setText(savedData)
 
         }
+        }
+    override fun onPause() {
+        super.onPause()
+        MyApplication.getApp().saveData(textView?.text.toString())
+    }
+
     }
