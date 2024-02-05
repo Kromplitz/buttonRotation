@@ -24,6 +24,8 @@ class MyApplication: Application() {
       return sharedPrefs.getString("MyKey","")?:""
     }
 
+
+
     companion object {
         private lateinit var instance: MyApplication
         fun getApp() = instance
