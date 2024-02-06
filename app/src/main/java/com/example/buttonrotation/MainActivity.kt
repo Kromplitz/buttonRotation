@@ -16,14 +16,15 @@ class MainActivity : AppCompatActivity() {
         val addButton: Button = findViewById(R.id.addButton)
         textView= findViewById(R.id.textView)
         val savedData =  MyApplication.getApp().getSavedData()
-        textView?.setText(savedData)
+        var result = 0
+        if( savedData.isNotEmpty()){
+            result = savedData.toInt()
+        }
+        textView?.text = result.toString()
 
         addButton.setOnClickListener {
-        var result = 0
         var res = result++
            textView?.text = res.toString()
-        val savedData =  MyApplication.getApp().saveData(textView?.text.toString())
-        textView?.setText(res)
 
         }
         }
